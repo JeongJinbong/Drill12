@@ -51,9 +51,6 @@ def init():
     game_world.add_collision_pair('boy:zombie', boy, None)  # 소년을 등록
     for zombie in zombies:
         game_world.add_collision_pair('boy:zombie', None,zombie)
-
-    for ball in balls:
-        game_world.add_collision_pair('ball:zombie', ball, None)
     for zombie in zombies:
         game_world.add_collision_pair('ball:zombie', None,zombie)
 
