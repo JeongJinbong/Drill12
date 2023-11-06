@@ -4,6 +4,8 @@ import game_framework
 
 from pico2d import *
 
+import game_world
+
 # zombie Run Speed
 PIXEL_PER_METER = (10.0 / 0.3)  # 10 pixel 30 cm
 RUN_SPEED_KMPH = 10.0  # Km / Hour
@@ -57,12 +59,14 @@ class Zombie:
 
     # fill here
     def get_bb(self):
-        return self.x - 50 , self.y -100, self.x+50, self.y+ 100
+        return self.x - self.size/4 , self.y -self.size/2, self.x+self.size/4, self.y+self.size/2
 
     def handle_collision(self,group,other):
         if group == 'boy:zombie':
             close_canvas()
-        if group == 'boy:zombie':
-            close_canvas()
-
+        if group == 'ball:zombie':
+            self.size = self.size/2
+            self.y = 100
+            if self. size < 100:
+                game_world.remove_object(self)
 
